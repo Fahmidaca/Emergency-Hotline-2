@@ -1,165 +1,84 @@
-## WELCOME TO ( সহজ সরল সিম্পল ) ASSIGNMENT-005
+# Emergency Hotline Project
 
-### 📅 Deadline For 60 marks: 29th August, 2025 (11:59 pm ⏱️)
+## Project Overview
+Emergency Hotline is a web application that provides a directory of important emergency service numbers for quick access. The project aims to help users easily find and call government and other emergency services in Bangladesh.
 
-### 📅 No Deadline For 50 marks
+## Features
+- Interactive emergency service cards with icons, names, and numbers
+- Call functionality with coin deduction system
+- Copy phone numbers to clipboard
+- Heart button to show likes
+- Call history with timestamps and clear history option
+- Responsive design for mobile and desktop
 
-### 📅 Deadline For 30 marks: Any time after 29th August.
+## Technologies Used
+- HTML5
+- CSS3 (with responsive design)
+- JavaScript (ES6+)
+- Font Awesome for icons
 
----
+## Usage
+1. Open `index.html` in a modern web browser.
+2. Browse the emergency service cards.
+3. Click the "Call" button to simulate a call (requires sufficient coins).
+4. Click the "Copy" button to copy the phone number to clipboard.
+5. Use the heart icon to like a service.
+6. View and clear call history in the sidebar.
 
-## ✅ Main Requirements (50 Marks)
+## Project Structure
+- `index.html`: Main HTML file
+- `styles.css`: Styling for the application
+- `script.js`: JavaScript logic and interactivity
+- `assets/`: Images and icons used in the project
 
-### 1. Navbar
+## JavaScript Concepts Used in This Project
 
-- **Website name & logo** on the left as Figma
-- **Heart icon, coin count (default-100), and Copy Count** on the right as Figma
+### 1. What is the difference between getElementById, getElementsByClassName, and querySelector / querySelectorAll?
 
----
+**getElementById**: Returns a single element object that has the specified ID. It's the fastest method since IDs should be unique in the DOM. Used in this project to get elements like heart-count, coin-count, etc.
 
-### 2. Hero Section
+**getElementsByClassName**: Returns a live HTMLCollection of all elements that have the specified class name. It updates automatically if the DOM changes. Useful for selecting multiple elements with the same class.
 
-- **Background Gradient** in the Whole Section
-- **A Relevant Logo** at the top-center
-- **Section Title** in the center
-- **A Relevant Slogan** in the bottom Center
+**querySelector**: Returns the first element that matches a specified CSS selector string. It's versatile and can select by ID, class, tag, attribute, etc. Used in this project for more complex selections.
 
----
+**querySelectorAll**: Returns a static NodeList of all elements matching the specified CSS selector string. Unlike getElementsByClassName, it does not update automatically. Good for selecting multiple elements with complex selectors.
 
-### 2. Main Section
+### 2. How do you create and insert a new element into the DOM?
 
-This Section will have layout as figma
+To create and insert a new element:
+1. Use `document.createElement(tagName)` to create the element
+2. Set attributes, classes, or content on the new element
+3. Use methods like `appendChild()`, `insertBefore()`, or `replaceChild()` on a parent node
 
-<table border=1 width="100%" cellpadding="50">
-<tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
- </tr>
- <tr>
-    <td colspan=9 >Card Section</td>
-    <td colspan=3>History Section</td>
- </tr>
-</table>
+In this project, we use this pattern in the `renderCards()` function to dynamically create emergency service cards and in `renderHistory()` to display call history items.
 
-### Emergency Hotline Section
+### 3. What is Event Bubbling and how does it work?
 
-- **Show Minimum 6 cards**. Each card will contain:
-  - Icon or Image
-  - Relevant Name
-  - Relevant Name in English
-  - Hotline number for calling
-  - Category Badge
-  - 💗 icon at left
-  - **2 buttons** at the bottom: Copy and Call with icons as Figma
+Event Bubbling is a type of event propagation where an event starts from the deepest target element and then bubbles up to its ancestors in the DOM tree. For example, if you click a button inside a div, the click event triggers on the button first, then on the div, then on its parent elements up to the document.
 
-### History Section
+This allows event handlers on parent elements to catch events from their children. In this project, we use event bubbling in the `setupEventListeners()` function where we listen for events on the document and then check which specific element was clicked.
 
-- **A white Background** in the whole section
-- **History Title with icon** at the top-left as Figma
-- **Clear History Button** at the top-right as Figma
+### 4. What is Event Delegation in JavaScript? Why is it useful?
 
----
+Event Delegation is a technique where a single event listener is added to a parent element to handle events for its child elements. Instead of attaching event listeners to multiple child elements, you listen on the parent and use event bubbling to detect which child triggered the event.
 
-### 3. Responsiveness (5 Marks)
+It is useful for:
+- Improving performance (fewer event listeners)
+- Handling dynamic elements added after the event listener is set
+- Reducing memory usage
 
-- Website should be fully **responsive for mobile devices** (implementation up to you)
+In this project, we use event delegation in the main click handler to handle heart, copy, and call button clicks without attaching individual listeners to each button.
 
----
+### 5. What is the difference between preventDefault() and stopPropagation() methods?
 
-## Functionalities
+**preventDefault()**: Prevents the default action that belongs to the event. For example, preventing a link from navigating or a form from submitting. It stops the browser's default behavior.
 
-### 4. Heart Icons
+**stopPropagation()**: Stops the event from bubbling up or capturing down the DOM tree, preventing other event listeners on ancestor elements from being triggered. It stops the event from propagating through the DOM.
 
-- Clicking on the 💗 **heart icon** of any card will increase the count in the Navbar
+In this project, we don't use these methods extensively since we're not dealing with forms or links that need default behavior prevention, but they are important concepts in JavaScript event handling.
 
----
+## Contributing
+Contributions are welcome. Please fork the repository and submit a pull request.
 
-### 5. Call Buttons
-
-- On clicking a card's **Call Button**, following actions will happen:
-  - Show an **alert** with a message including the service name and number
-  - Each call will **cut 20 coins**. Reduce Coin after each click.
-  - If coins are less than 20, show a relevant alert and terminate the process.
-  - Add this service into the **Call History section** with:
-    - Service name
-    - Service number
-
----
-
-### 5. Call History Section
-
-- Show all called services with name & number. This will empty initially. when call button clicked it will filled dynamically.
-- A **Clear History button** on the right
-- Clicking this button will remove all data from call history
-
----
-
-## Create Readme
-
-You have to create a `Readme.md` file. and write down following questions. Dont Try to copy paste from AI Tools. Just write what you know about these. If you don't know , then search , learn , understand and then write.
-
-### 6. Answer the following questions clearly:
-
-1. What is the difference between **getElementById, getElementsByClassName, and querySelector / querySelectorAll**?
-2. How do you **create and insert a new element into the DOM**?
-3. What is **Event Bubbling** and how does it work?
-4. What is **Event Delegation** in JavaScript? Why is it useful?
-5. What is the difference between **preventDefault() and stopPropagation()** methods?
-
----
-
-## 🧪 Challenges Part (10 Marks)
-
-- On clicking the **Copy button**, show an alert and **increase the copy count** (3 Marks)
-
-- Hotline number will be **copied on click** so it can be pasted anywhere (4 Marks)
-
-💡Hint: You can ask for Help from `ChatGPT` Mamma . Just copy the below prompt , generate answer. use it with your own way.
-
-```bash
-I have a card with some text and a button inside it. I want that when a user clicks the button, some specific text from the card is copied to the clipboard using JavaScript. Please provide the code and explain it step by step.
-```
-
-- After clicking on the **Call button**, the **exact time of the call** will be shown in the Call History section (3 Marks)
-
-💡Hint: Search Google with that below question
-
-```bash
-How to get current local time in js
-```
-
----
-
-## ⚙️ Technology Stack
-
-- HTML
-- CSS ( Vanilla , Tailwind CSS , DaisyUI , Others - wheatever you like )
-- JavaScript ( Vanilla only. No Framework / Library Allowed )
-
----
-
-## 📌 Rules
-
-- ✅ Minimum **5 meaningful commits** required
-- ❌ No Lorem Ipsum or dummy placeholder text. Use **relevant content only**
-
----
-
-## 🔗 What to Submit
-
-- 📂 **GitHub Repository**
-- 🌐 **Live Link**
-
----
-
-# Let's Code and Achieve your Dream 🎯
+## License
+This project is open source and available under the MIT License.
